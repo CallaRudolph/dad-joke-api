@@ -8,8 +8,9 @@ export function fetchJoke(word) {
       response => response.json(),
       error => console.log("An error occurred.", error)
     ).then(function(json) {
-      if (json.results > 0) {
-        const joke = json.results.joke;
+      console.log(json);
+      if (json.total_jokes > 0) {
+        const joke = json.results[0].joke;
         console.log(joke);
         /// what goes here
       } else {
