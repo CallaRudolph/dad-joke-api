@@ -1,3 +1,10 @@
+import * as types from "./../constants/ActionTypes";
+
+export const displayJoke = (joke) => ({
+  type: types.DISPLAY_JOKE,
+  joke
+});
+
 export function fetchJoke(word) {
   return function (dispatch) {
     word = word.replace(" ", "%20");
@@ -12,7 +19,7 @@ export function fetchJoke(word) {
       if (json.total_jokes > 0) {
         const joke = json.results[0].joke;
         console.log(joke);
-        /// what goes here
+        dispatch(displayJoke(joke));
       } else {
         console.log("No jokes were had.");
       }
