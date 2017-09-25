@@ -1,4 +1,5 @@
 import React from "react";
+import { fetchJoke } from "./../actions";
 import { connect } from "react-redux";
 
 class JokeInput extends React.Component {
@@ -10,6 +11,7 @@ class JokeInput extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let { _word } = this.refs;
+    console.log(_word.value);
     if (!_word.value.trim()) {
       return;
     }
