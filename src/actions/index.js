@@ -1,8 +1,11 @@
 export function fetchJoke(word) {
   return function (dispatch) {
     word = word.replace(" ", "%20");
-    return fetch("https://icanhazdadjoke.com/search?term=" + word + "&limit=1").then(
-      respone => response.json(),
+    return fetch("https://icanhazdadjoke.com/search?term=" + word + "&limit=1", {
+      headers : {
+        'Accept': 'application/json'
+      }}).then(
+      response => response.json(),
       error => console.log("An error occurred.", error)
     ).then(function(json) {
       if (json.results > 0) {
