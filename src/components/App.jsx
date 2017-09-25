@@ -1,10 +1,12 @@
 import React from "react";
 import Header from "./Header";
+import JokeDisplay from "./JokeDisplay";
 
 function App(props){
   return (
-    <div>
+    <div className="container">
       <Header/>
+      <JokeDisplay/>
     </div>
   );
 }
