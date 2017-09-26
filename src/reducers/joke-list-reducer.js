@@ -23,9 +23,6 @@ const jokesById = (state = defaultState, action) => {
         joke: action.joke,
         jokeId: action.jokeId
       });
-      // newState = Object.assign({}, state, {
-      //   [action.jokeId]: newJoke
-      // });
       return newJoke;
     default:
       return state;
