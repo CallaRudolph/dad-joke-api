@@ -1,6 +1,7 @@
 import React from "react";
 import { fetchJoke } from "./../actions";
 import { connect } from "react-redux";
+import { Button } from "react-bootstrap";
 
 class JokeInput extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class JokeInput extends React.Component {
         <form style={formStyle} onSubmit={this.handleSubmit}>
           <input placeholder="What can I say?" ref="_word"></input>
           <p></p>
-          <button>I am a button.</button>
+          <Button bsStyle="info">I am a button.</Button>
         </form>
       </div>
     );
