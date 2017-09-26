@@ -1,7 +1,7 @@
 import constants from "./../constants";
 const { defaultState, types } = constants;
 
-const jokesById = (state = defaultState.jokesById, action) => {
+const jokesById = (state = defaultState, action) => {
   let joke;
   let newJoke;
   let newState;
@@ -23,9 +23,9 @@ const jokesById = (state = defaultState.jokesById, action) => {
         joke: action.joke,
         jokeId: action.jokeId
       });
-      newState = Object.assign({}, state, {
-        [action.jokeId]: newJoke
-      });
+      // newState = Object.assign({}, state, {
+      //   [action.jokeId]: newJoke
+      // });
       return newJoke;
     default:
       return state;
