@@ -14,7 +14,7 @@ const JokeDisplay = ({ dispatch, joke }) => {
   } else {
     formAreaContent =
     <div>
-      <h1>"{joke}"</h1>
+      <h1>"{joke.joke}"</h1>
     </div>
   }
 
@@ -29,8 +29,7 @@ const JokeDisplay = ({ dispatch, joke }) => {
 }
 
 JokeDisplay.propTypes = {
-  joke: PropTypes.array,
-  dispatch: PropTypes.func
+  joke: PropTypes.object
 };
 
 const mapStateToProps = state => {

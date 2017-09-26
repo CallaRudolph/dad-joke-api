@@ -1,9 +1,9 @@
 import * as types from "./../constants/ActionTypes";
 import v4 from "uuid/v4";
 
-export const requestJoke = (joke, jokeId) => ({
+export const requestJoke = (word, jokeId) => ({
   type: types.REQUEST_JOKE,
-  joke,
+  word,
   jokeId: jokeId
 });
 
@@ -16,6 +16,7 @@ export const displayJoke = (joke, jokeId) => ({
 export function fetchJoke(word) {
   return function (dispatch) {
     const jokeId = v4();
+    console.log(jokeId);
     dispatch(requestJoke(word, jokeId));
     word = word.replace(" ", "%20");
     return fetch("https://icanhazdadjoke.com/search?term=" + word + "&limit=1", {
@@ -29,10 +30,10 @@ export function fetchJoke(word) {
       if (json.total_jokes > 0) {
         const joke = json.results[0].joke;
         console.log(joke);
-        dispatch(displayJoke(joke));
+        dispatch(displayJoke(joke, jokeId));
       } else {
         const joke = "Try again. I ain't that good";
-        dispatch(displayJoke(joke));
+        dispatch(displayJoke(joke, jokeId));
       }
     });
   };

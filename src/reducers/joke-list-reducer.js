@@ -9,7 +9,7 @@ const jokesById = (state = defaultState.jokesById, action) => {
     case types.REQUEST_JOKE:
       newJoke = {
         isFetching: true,
-        joke: action.joke,
+        word: action.word,
         jokeId: action.jokeId
       };
       newState = Object.assign({}, state, {
