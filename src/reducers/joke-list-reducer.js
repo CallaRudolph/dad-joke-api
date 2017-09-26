@@ -1,15 +1,35 @@
-// import constants from "./../constants";
-// const { types } = constants;
+import constants from "./../constants";
+const { defaultState, types } = constants;
 
-
-export default (state = [], action) => {
+const jokesById = (state = defaultState.jokesById, action) => {
+  let joke;
+  let newJoke;
+  let newState;
   switch (action.type) {
-    case "DISPLAY_JOKE":
-      const { joke } = action;
-      return [
-        joke: joke
-      ];
+    case types.REQUEST_JOKE:
+      newJoke = {
+        isFetching: true,
+        joke: action.joke,
+        jokeId: action.jokeId
+      };
+      newState = Object.assign({}, state, {
+        [action.jokeId]: newJoke
+      });
+      return newState;
+    case types.DISPLAY_JOKE:
+      joke = state[action.jokeId];
+      newJoke = Object.assign({}, joke, {
+        isFetching: false,
+        joke: action.joke,
+        jokeId: action.jokeId
+      });
+      newState = Object.assign({}, state, {
+        [action.jokeId]: newJoke
+      });
+      return newJoke;
     default:
       return state;
   }
 }
+
+export default jokesById;

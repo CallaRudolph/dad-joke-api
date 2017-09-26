@@ -1,12 +1,22 @@
 import * as types from "./../constants/ActionTypes";
+import v4 from "uuid/v4";
 
-export const displayJoke = (joke) => ({
+export const requestJoke = (joke, jokeId) => ({
+  type: types.REQUEST_JOKE,
+  joke,
+  jokeId: jokeId
+});
+
+export const displayJoke = (joke, jokeId) => ({
   type: types.DISPLAY_JOKE,
-  joke
+  joke,
+  jokeId
 });
 
 export function fetchJoke(word) {
   return function (dispatch) {
+    const jokeId = v4();
+    dispatch(requestJoke(word, jokeId));
     word = word.replace(" ", "%20");
     return fetch("https://icanhazdadjoke.com/search?term=" + word + "&limit=1", {
       headers : {

@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 const JokeDisplay = ({ dispatch, joke }) => {
+  console.log(joke);
   let formAreaContent = null;
-  if (joke.length === 0) {
+  if (joke === undefined) {
     formAreaContent =
     <div>
       <h4>You'll be laughing shortly...</h4>
@@ -28,7 +29,8 @@ const JokeDisplay = ({ dispatch, joke }) => {
 }
 
 JokeDisplay.propTypes = {
-  joke: PropTypes.array
+  joke: PropTypes.array,
+  dispatch: PropTypes.func
 };
 
 const mapStateToProps = state => {
