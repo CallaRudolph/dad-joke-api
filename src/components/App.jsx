@@ -6,7 +6,14 @@ import Background from "./../images/background.jpg";
 function App(props){
   var backgroundStyle = {
     backgroundImage: "url(" + Background + ")",
-    color: "pink"
+    position: "fixed",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    zIndex: 9999,
+    color: "pink",
+    textShadow: "2px 2px blue"
   }
   return (
     <div style={backgroundStyle} className="container">

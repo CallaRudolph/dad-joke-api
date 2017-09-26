@@ -20,9 +20,12 @@ class JokeInput extends React.Component {
   }
 
   render() {
+    var formStyle = {
+      color: "black"
+    }
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form style={formStyle} onSubmit={this.handleSubmit}>
           <input placeholder="What can I say?" ref="_word"></input>
           <p></p>
           <button>I am a button.</button>
