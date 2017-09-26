@@ -2,7 +2,7 @@ import React from "react";
 
 function Header(props){
   return (
-    <h1>Here we are!! <em>Hahahahahahaha.</em></h1>
+    <h1>I'm dad, and I have jokes. <em>Hahahahahahaha.</em></h1>
   );
 }
 

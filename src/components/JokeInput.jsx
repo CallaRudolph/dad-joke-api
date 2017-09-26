@@ -23,7 +23,8 @@ class JokeInput extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <input placeholder="Type in a word." ref="_word"></input>
+          <input placeholder="What can I say?" ref="_word"></input>
+          <p></p>
           <button>I am a button.</button>
         </form>
       </div>
