@@ -21,7 +21,8 @@ export function fetchJoke(word) {
         console.log(joke);
         dispatch(displayJoke(joke));
       } else {
-        console.log("No jokes were had.");
+        const joke = "Try again. I ain't that good";
+        dispatch(displayJoke(joke));
       }
     });
   };
