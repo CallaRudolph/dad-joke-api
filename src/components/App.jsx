@@ -7,6 +7,7 @@ function App(props){
   var backgroundStyle = {
     backgroundImage: "url(" + Background + ")",
     position: "fixed",
+    backgroundSize: "cover",
     top: 0,
     left: 0,
     width: "100%",

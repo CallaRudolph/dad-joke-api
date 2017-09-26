@@ -1,24 +1,26 @@
-import jokeList from './../../src/reducers/joke-list-reducer';
+import jokesById from './../../src/reducers/joke-list-reducer';
 import constants from './../../src/constants';
+import * as actions from "./../../src/actions";
 
 describe("Joke list reducer", () => {
+  const { defaultState, types } = constants;
 
   test('should return equivalent state if no action type is recognized', () => {
-    expect(jokeList([], { type: null })).toEqual([]);
+    expect(jokesById([], { type: null })).toEqual([]);
   });
 
-  it("update state on request song", () => {
-      const action = actions.requestSong("crocodile rock");
+  it("update state on request joke", () => {
+      const action = actions.requestJoke("cheese");
       const newObject = {
         isFetching: true,
-        title: action.title,
-        songId: action.songId,
+        word: action.word,
+        jokeId: action.jokeId,
       };
-      expect(songsById(defaultState.songsById, action)[action.songId])
+      expect(jokesById(defaultState.jokeId, action)[action.jokeId])
       .toEqual(newObject);
     });
 
-    it("update state on receive song", () => {
+    it("update state on receive joke", () => {
       const action = actions.receiveSong("kiss", "prince", 1, ["you don't have to be beautiful", "to turn me on"]);
       const newObject = {
         isFetching: false,
